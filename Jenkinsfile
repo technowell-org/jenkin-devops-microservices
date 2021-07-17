@@ -1,17 +1,21 @@
-pipeline {
-	agent any
-    //agent { docker { image 'maven:3.3.3' } }
-	environment {
-		dockerHome = tool 'myDocker'
-		mavenHome = tool 'myMaven'
-		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
-	}
-
+agent any 
+	//agent {docker (image 'node:13.8'}}
     stages {
-        stage('build') {
+        stage('Build') { 
             steps {
-                sh 'mvn --version'
-		sh 'docker -v'
+                // 
+            }
+        }
+        stage('Test') { 
+            steps {
+                // 
+		 echo "Build"   
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                // 
+		   echo "Deploy"   
             }
         }
     }
